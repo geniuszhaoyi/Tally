@@ -1,6 +1,6 @@
 import ModelErrors
 
-def checkTallyAccess(user,tally,ty):
+def checkTallyAccess(user,tally,ty='11'):
     ty_len=2
 
     if type(user)!=User.User or type(tally)!=Tally.Tally:

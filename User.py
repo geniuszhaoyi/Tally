@@ -1,4 +1,4 @@
-import ModelUserLogin
+import Model
 
 def check_name(string):
     valid_char='zxcvbnmlkjhgfdsaqwertyuiop1234567890_,.'
@@ -22,7 +22,7 @@ class User:
     def login(self):
         if self.__checked==1: return 1
         self.__roles=[]
-        if UserCheck.check(self.__name,self.__pswd,self.__roles)==True:
+        if Model.checkUserPswd(self.__name,self.__pswd,self.__roles)==True:
             self.__checked=1
             return 1
         else:

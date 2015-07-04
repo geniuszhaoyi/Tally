@@ -1,0 +1,35 @@
+CREATE DATABASE `tally` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+
+CREATE TABLE USERS(
+    users_name char(20) not null,
+    users_pswd char(20) not null,
+    CONSTRAINT PRIMARY KEY users_pk(users_name)
+);
+
+CREATE TABLE TALLYS(
+    tallys_name char(20) not null,
+    tallys_owner char(20) not null,
+    tallys_balance Decimal(10,2) not null default 0.0,
+    tallys_permission char(2) not null default '00',
+    CONSTRAINT PRIMARY KEY tallys_pk(tallys_name)
+);
+
+CREATE TABLE RECORDS(
+    rcd_id int AUTO_INCREMENT,
+    rcd_timestamp timestamp NOT NULL default CURRENT_TIMESTAMP,
+    rcd_op char(20) not null,
+    rcd_tally char(20) not null,
+    rcd_change Decimal(10,2) not null,
+    rcd_balance Decimal(10,2) not null,
+    rcd_note varchar(200) not null default 'none',
+    CONSTRAINT PRIMARY KEY rcd_pk(rcd_id)
+);
+
+CREATE TABLE CATALOG(
+    ctlg_name char(20) not null,
+    ctlg_desc varchar(200) not null DEFAULT 'none',
+    ctlg_creater char(20) not null,
+    CONSTRAINT PRIMARY KEY ctlg_pk(ctlg_name)
+);
+
+

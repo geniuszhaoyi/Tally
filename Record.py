@@ -1,22 +1,13 @@
-import User
-import ModelRecord
+from decimal import *
 
 class Record:
-    def __init__(self,user,change,timestamp,note):
-        if type(user)!=User.User or (type(change)!=int and type(change)!=float) or type(timestamp)!=int or type(note)!=str:
-            raise KeyError()
-        
-        self.__added=0
-    
-    def add():
-        if self.__added==1:
-            raise ValueError()
-        
-        if user.islogedin()==1 and user.isrole('users')==True:
-            ModelRecord.add(user,change,timestamp,note)
-        
-        self.__added=1
-    
+    def __init__(self,change,note,timestamp=None,op=None,tally=None,balance=None):
+        self.change=Decimal(str(change))
+        self.note=note
+        self.timestamp=timestamp
+        self.op=op
+        self.tally=tally
+        self.balance=balance
     
 
 
